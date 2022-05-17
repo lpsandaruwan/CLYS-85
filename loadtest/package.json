@@ -1,0 +1,16 @@
+{
+  "name": "loadtest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@colyseus/loadtest": "0.15.0-preview.0",
+    "colyseus.js": "^0.15.0-preview.5",
+    "ts-node": "10.7.0"
+  },
+  "description": ""
+}

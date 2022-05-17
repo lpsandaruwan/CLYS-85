@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="./node_modules/colyseus.js/dist/colyseus.js"></script>
+
+    <script>
+      let client = new Colyseus.Client('ws://localhost:3000');
+      let _room;
+      client.joinOrCreate("my_room").then(room => {
+        console.log(room.sessionId, "joined", room.name);
+        console.log(room);
+        _room = room;
+    }).catch(e => {
+        console.log("JOIN ERROR", e);
+    });
+
+    function sendMessage() {
+      try {
+        _room.send("up", {"msg": Date.now().toString()});
+        console.log(_room.state);
+       } catch(err) {
+        console.log(err);
+       }
+    }
+
+    </script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <button onclick="sendMessage()">Update State</button>
+    </main>
+    <footer></footer>
+  </body>
+</html>
